@@ -7,7 +7,8 @@ const app = express();
 const port = 3000;
 const route = require('./routes')
 const db = require('./config/db')
-//Connect to DB')
+
+//Connect to DB
 db.connect();
 
 // console.log(path.join(__dirname,'resources/views'));
@@ -31,7 +32,6 @@ app.use(express.static(path.join(__dirname,'public')))
 
 
 //Route innit
-
 route(app);
 // app.get('/', (req, res) => {
 //   res.render('home');
