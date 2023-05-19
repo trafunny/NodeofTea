@@ -25,7 +25,7 @@ app.use(express.json())
 // hanadlebars (template engine)
 app.engine('hbs',hanadlebars.engine({extname: '.hbs'}))
 app.set('view engine','hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources','views'));
 
 // Run API public folder
 app.use(express.static(path.join(__dirname,'public')))
@@ -38,5 +38,5 @@ route(app);
 // })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(` App listening on port http://localhost:${port}`);
 })

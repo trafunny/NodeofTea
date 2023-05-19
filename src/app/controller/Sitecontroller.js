@@ -1,11 +1,21 @@
-
+const Course = require('../models/Course');
+const {mutipleMongooesToObject} = require('../../util/sovlehbs')
+// const a = require('../../util/sovlehbs')
 
 // [GET] /
 class Sitecontroller {
     // [GET] /(home)
-    index(req, res) {
+    index(req, res , next) {
+        Course.find({})
+            .then(Course=>{
+                // Course = Course.map(e => e.toObject())
+                res.render('home',{Course : mutipleMongooesToObject(Course)});
 
-        res.render('home');
+            } )
+            // .then(courses => res.json(courses))
+            .catch(next);
+
+        // res.render('home');
     }
     //[GET] /search
     showSearch(req,res){
@@ -15,6 +25,7 @@ class Sitecontroller {
     showSignIn(req,res){
         res.render('signin');
     }
+
     
 }
 

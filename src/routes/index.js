@@ -1,12 +1,14 @@
 const newRouter = require('./news')
 const siteRouter = require('./site')
-
+const courseRouter = require('./courses')
 function route(app) {
     
     app.use('/news', newRouter)
     // app.get('/news', (req, res) => {
     //     res.render('new')
     // })
+
+    app.use('/courses',courseRouter)
 
 
     // app.use('/home', siteRouter)
