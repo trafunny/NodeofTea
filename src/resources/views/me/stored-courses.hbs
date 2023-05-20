@@ -1,0 +1,28 @@
+<div class="mt-4">
+    <h3>My Courses</h3>
+    <table class="table table-striped ">
+        <thead class="table-info">
+            <tr>
+                <th scope="col" class="col-lg-1">#</th>
+                <th scope="col" class="table-striped-columns col-lg-3">Name</th>
+                <th scope="col" class="col-lg-2">Price</th>
+                <th scope="col" class="col-lg-6">Created Time</th>
+                {{!-- <th scope="col">Updated Time</th> --}}
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each Course}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{checkSale this.price }}</td>
+                <td>{{this.createdAt }}</td>
+                {{!-- <td>{{this.updatedAt}}</td> --}}
+
+            </tr>
+            {{/each}}
+            
+        </tbody>
+    </table>
+</div>

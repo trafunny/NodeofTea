@@ -2,6 +2,7 @@ const Course = require('../models/Course');
 const {mutipleMongooesToObject} = require('../../util/sovlehbs')
 // const a = require('../../util/sovlehbs')
 
+
 // [GET] /
 class Sitecontroller {
     // [GET] /(home)

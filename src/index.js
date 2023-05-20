@@ -8,11 +8,13 @@ const port = 3000;
 const route = require('./routes')
 const db = require('./config/db')
 
+
 //Connect to DB
 db.connect();
 
+
 // console.log(path.join(__dirname,'resources/views'));
- // logger GET
+// logger GET
 // app.use(morgan('combined'));
 
 //use middleware to get bodytable of POST via XMLHttpRequest , fetch ,axios
@@ -23,12 +25,18 @@ app.use(express.json())
 
 
 // hanadlebars (template engine)
-app.engine('hbs',hanadlebars.engine({extname: '.hbs'}))
-app.set('view engine','hbs');
-app.set('views', path.join(__dirname, 'resources','views'));
+app.engine('hbs', hanadlebars.engine({
+  extname: '.hbs',
+  helpers: {
+    sum: (a,b) => a+b ,
+    checkSale : value => value ? value + '$' : 'free', 
+  }
+}))
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Run API public folder
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 //Route innit
