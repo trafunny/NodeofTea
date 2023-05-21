@@ -28,6 +28,18 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 
+//MiddleWare
+// app.use(Guard)
+function Guard(req,res,next){
+  if(['user','admin'].includes(req.query.ve)){
+    req.face = 'Yes'
+    return next();
+  }
+  res.status(403).json({
+    message : ' Access Denied ' ,
+  })
+
+}
 
 // hanadlebars (template engine)
 app.engine('hbs', hanadlebars.engine({
