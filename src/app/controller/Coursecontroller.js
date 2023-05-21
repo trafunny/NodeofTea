@@ -24,6 +24,13 @@ class Coursecontroller {
             .catch(next);
         // res.json(req.body);
     }
+    //[DELETE] /courses/:id
+    destroyCourse(req,res,next){
+        
+        Course.deleteOne({_id: req.params.id})
+            .then(()=> res.redirect('back'))
+            .catch(next);
+    }
 
     //[GET] /courses/:id/edit
     editCourse(req,res,next){
@@ -41,16 +48,17 @@ class Coursecontroller {
     }
 
     //[POST] /course/store
-    storeCourse(req,res){
+    storeCourse(req,res,next){
         // res.json(req.body);
         // Course.create(res.json(req.body))
         //     .catch(error =>{})
         const formData = req.body;
-        formData.image = `https://img.youtube.com/vi/${req.body.vidID}/sddefault.jpg`;
+        // formData.image = `https://img.youtube.com/vi/${req.body.vidID}/sddefault.jpg`;
+        formData.image = 'https://media.zim.vn/62d13e991b5d34001f08d06e/toeic-la-gi.jpg'
         const course = new Course(req.body);
         course.save()
             .then(() => res.redirect('/'))
-            .catch(error =>{res.send('loi')})
+            .catch(next)
     
     
         // res.send( req.body)

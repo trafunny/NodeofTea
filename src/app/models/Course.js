@@ -11,7 +11,7 @@ const Course = new Schema({
     name: { type: String, maxLength: 255 , default:"anonymous" ,require: true},
     description: String,
     image: { type: String, maxLength: 255 },
-    price: { type : Number , min: 100000 , index : true } ,
+    price: { type : Number , min: 0 , index : true } ,
     slug : { type : String , slug : "name" ,unique : true } ,  
     vidID : String ,
     // createdAt : { type : Date , default : Date.now} ,

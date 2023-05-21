@@ -8,7 +8,7 @@ route.get('/create',coursecontroller.createCourse)
 route.post('/store',coursecontroller.storeCourse)
 route.get('/:id/edit',coursecontroller.editCourse)
 route.put('/:id',coursecontroller.updateCourse)
-
+route.delete('/:id',coursecontroller.destroyCourse)
 route.get('/:slug',coursecontroller.showCourse)
 
 
