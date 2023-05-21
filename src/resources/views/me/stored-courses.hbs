@@ -3,11 +3,11 @@
     <table class="table table-striped ">
         <thead class="table-info">
             <tr>
-                <th scope="col" class="col-lg-1">#</th>
-                <th scope="col" class="table-striped-columns col-lg-3">Name</th>
+                <th scope="col" class="col">#</th>
+                <th scope="col" class="table-striped-columns col-lg-2">Name</th>
                 <th scope="col" class="col-lg-2">Price</th>
                 <th scope="col" class="col-lg-6">Created Time</th>
-                {{!-- <th scope="col">Updated Time</th> --}}
+                <th scope="col" class="col">Modify</th>
 
             </tr>
         </thead>
@@ -18,7 +18,10 @@
                 <td>{{this.name}}</td>
                 <td>{{checkSale this.price }}</td>
                 <td>{{this.createdAt }}</td>
-                {{!-- <td>{{this.updatedAt}}</td> --}}
+                <td>
+                    <a href="/courses/{{this._id}}/edit" style="margin-right : 0.5rem">Edit</a>
+                    <a href="" style="margin-left: 0.5rem;">Delete</a>
+                </td>
 
             </tr>
             {{/each}}

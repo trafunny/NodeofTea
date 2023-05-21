@@ -16,15 +16,30 @@ class Coursecontroller {
             })
             .catch(next);
     }
-    //[GET] /courses/edit
-    editCourse(req,res){
-        res.render('courses/edit')
+
+    //[PUT] /courses/:id
+    updateCourse(req,res,next){
+        Course.updateOne({_id: req.params.id},req.body)
+            .then(()=> res.redirect('/me/stored-courses'))
+            .catch(next);
+        // res.json(req.body);
     }
+
+    //[GET] /courses/:id/edit
+    editCourse(req,res,next){
+        Course.findById(req.params.id)
+            .then(course => res.render('courses/edit',{
+                course: mongooesToObject(course)
+            }))
+            .catch(next)
+        
+    }
+
     //[GET] /courses/create
-   
     createCourse(req,res){
         res.render('courses/create')
     }
+
     //[POST] /course/store
     storeCourse(req,res){
         // res.json(req.body);

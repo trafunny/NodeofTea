@@ -7,7 +7,12 @@ const app = express();
 const port = 3000;
 const route = require('./routes')
 const db = require('./config/db')
+const methodOverride = require('method-override')
 
+
+
+// override with POST having ?_method=DELETE or PUT
+app.use(methodOverride('_method'))
 
 //Connect to DB
 db.connect();
