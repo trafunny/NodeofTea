@@ -1,62 +1,49 @@
-<div class="main--signin">
+<div class="container-signin margin-top-all" style="display: flex; flex-direction: column;">
+  <div class="sign-in" style="display: flex; width: 408px;padding: rem 0rem 1.5rem;
+    background-color: #f1f1f1; flex-direction: column; justify-content: center; align-self: center;
+    height: 480px; border-radius: 5px ;margin-top: 2rem; ">
 
-        <form action="" method="POST" class="form" id="form-1">
-          
-          <h3 class="heading">Thành viên đăng ký</h3>
-          <p class="desc"> Have a good time with us  !❤️</p>
-      
-          <div class="spacer"></div>
-      
-          <div class="form-group">
-            <label for="fullname" class="form-label">Tên đầy đủ</label>
-            <input id="fullname" name="fullname" type="text" placeholder="VD: Tra Nguyen" class="form-control">
-            <span class="form-message"></span>
-          </div>
-      
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-            <span class="form-message"></span>
-          </div>
+    <h1 style="width: 360px;
+    color: black;
+    align-self: center;
+    text-align: center; font-size : 2.3rem;
+    ">Sign In</h1>
+    <p class="desc" style="width: 360px;
+    align-self: center; text-align :center ;
+    display: flex; color: #636d77; padding-bottom : 0.5rem;
+    flex-direction: column;"> Have a good time with us !❤️</p>
 
-          {{!-- <div class="form-group">
-            <label for="sdt" class="form-label">Phone Number</label>
-            <input id="sdt" name="sdt" type="tel" placeholder="VD: +84" class="form-control">
-            <span class="form-message"></span>
-          </div> --}}
-      
-          <div class="form-group">
-            <label for="password" class="form-label">Mật khẩu</label>
-            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-            <span class="form-message"></span>
-          </div>
-      
-          <div class="form-group">
-            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
-            <span class="form-message"></span>
-          </div>
-      
-          <button class="form-submit">Đăng ký</button>
-        </form>
-      
+    <form style="width: 360px;
+    align-self: center; display: flex;  margin-bottom: 3rem;
+    flex-direction: column;">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" style="font-size: 16px;">User Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="VD: TraNguyen"
+          aria-describedby="emailHelp" style="font-size: 1rem;">
       </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: 16px;">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="VD: 1234"
+          style=" font-size : 1rem;">
+        <div id="emailHelp" class="form-text">We'll never share your password with anyone else.</div>
+      </div>
+      {{!-- <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div> --}}
+      <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Log
+        in</button>
+    </form>
+  </div>
+</div>
 
-      <script>
-        function counter(){
-          let count  = 0;
-          function increase(){
-            return ++ count
-          }
-          return increase()
-        }
-        // var a = counter()
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
 
-        console.log(counter())
-        console.log(counter())
-        console.log(counter())
-
-        // console.log(a()())
-        // console.log(a()())
-      </script>
       
+        document.querySelector('body').classList.add('bg-color-signin--up')
+        document.querySelector('.navbar.navbar-expand-lg.bg-body-tertiary').classList.add('border-navbar')
+
+     
+    });
+  </script>

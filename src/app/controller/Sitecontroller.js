@@ -26,6 +26,12 @@ class Sitecontroller {
     showSignIn(req,res){
         res.render('signin');
     }
+    
+
+    //[GET] /signup
+    showSignUp(req,res,next){
+        res.render('signup')
+    }
 
     
 }
