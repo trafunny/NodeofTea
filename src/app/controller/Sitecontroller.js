@@ -38,7 +38,6 @@ class Sitecontroller {
         const user = new User(req.body);
         user.save()
             .then(()=>{ res.redirect('/') })
-            // .then(()=>{alert('dang ki thanh cong')}) 
             .catch((err)=> res.send('error'))
 
         // res.json({user})

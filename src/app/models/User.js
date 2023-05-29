@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const slug = require("mongoose-slug-updater");
+const bcrypt = require('bcrypt')
+
 
 mongoose.plugin(slug); 
 
@@ -18,6 +20,21 @@ const User = new Schema({
    
 },{
     timestamps : true ,     
+})
+
+User.pre('save',async function(next){
+    try {
+        console.log(`called before save :::` , this.username , this.password)
+        const salt = await bcrypt.genSalt(10)
+        const hassPassword =  await  bcrypt.hash(this.password, salt)
+        this.password = hassPassword
+        next()
+
+        
+    } catch (error) {
+        next(error)
+        
+    }
 })
 
 module.exports = mongoose.model('user',User);
