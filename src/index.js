@@ -1,10 +1,12 @@
+require('dotenv').config()
+
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const hanadlebars = require('express-handlebars');
 const { url } = require('inspector');
 const app = express();
-const port = 3000;
+const port = 3000
 const route = require('./routes')
 const db = require('./config/db')
 const methodOverride = require('method-override')

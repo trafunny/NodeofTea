@@ -30,15 +30,18 @@ class Sitecontroller {
         res.render('signin');
     }
     
+
+
     //[POST] /create-user
     create_User(req,res,next){
 
         const user = new User(req.body);
         user.save()
-            .then(()=>res.redirect('/'))
+            .then(()=>{ res.redirect('/') })
+            // .then(()=>{alert('dang ki thanh cong')}) 
             .catch((err)=> res.send('error'))
 
-        res.json({user})
+        // res.json({user})
 
     }
     
