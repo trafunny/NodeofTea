@@ -4,6 +4,8 @@ const route = express.Router() ;
 
 const coursecontroller = require('../app/controller/Coursecontroller');
 
+
+
 route.get('/create',coursecontroller.createCourse)
 route.post('/store',coursecontroller.storeCourse)
 route.get('/:id/edit',coursecontroller.editCourse)

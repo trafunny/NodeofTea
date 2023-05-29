@@ -32,11 +32,13 @@ class Sitecontroller {
     
     //[POST] /create-user
     create_User(req,res,next){
-        // const User = new User(req.body);
-        // User.save()
-        //     .then(()=>res.redirect('/'))
-        //     .catch((err)=> res.send('error'))
-        res.send('Success')
+
+        const user = new User(req.body);
+        user.save()
+            .then(()=>res.redirect('/'))
+            .catch((err)=> res.send('error'))
+
+        res.json({user})
 
     }
     
