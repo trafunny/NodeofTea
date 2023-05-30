@@ -13,18 +13,18 @@
     display: flex; color: #636d77; padding-bottom : 0.5rem;
     flex-direction: column;"> Have a good time with us !❤️</p>
 
-    <form style="width: 360px;
+    <form method="post" action="/login" style="width: 360px;
     align-self: center; display: flex;  margin-bottom: 3rem;
     flex-direction: column;">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label" style="font-size: 16px;">User Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="VD: TraNguyen"
-          aria-describedby="emailHelp" style="font-size: 1rem;">
+        <label for="name" class="form-label" style="font-size: 16px;">User Name</label>
+        <input type="text" class="form-control" id="name" placeholder="VD: TraNguyen"
+          aria-describedby="emailHelp" style="font-size: 1rem;" name="name" required>
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label" style="font-size: 16px;">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="VD: 1234"
-          style=" font-size : 1rem;">
+        <label for="password" class="form-label" style="font-size: 16px;">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="VD: 1234"
+          style=" font-size : 1rem;" name="password" required>
         <div id="emailHelp" class="form-text">We'll never share your password with anyone else.</div>
       </div>
       {{!-- <div class="mb-3 form-check">

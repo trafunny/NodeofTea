@@ -1,4 +1,5 @@
-require('dotenv').config()
+const dotevn = require('dotenv')
+dotevn.config()
 
 const path = require('path');
 const express = require('express');
@@ -6,10 +7,14 @@ const morgan = require('morgan');
 const hanadlebars = require('express-handlebars');
 const { url } = require('inspector');
 const app = express();
-const port = 3000
+const PORT = process.env.PORT || 3000
 const route = require('./routes')
 const db = require('./config/db')
 const methodOverride = require('method-override')
+const cookieParser = require('cookie-parser')
+
+app.use(cookieParser())
+
 
 
 
@@ -64,8 +69,8 @@ route(app);
 //   res.render('home');
 // })
 
-app.listen(port, () => {
-  console.log(` App listening on port http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(` App listening on port http://localhost:${PORT}`);
 })
 
 

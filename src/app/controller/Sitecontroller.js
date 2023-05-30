@@ -29,6 +29,11 @@ class Sitecontroller {
     showSignIn(req,res){
         res.render('signin');
     }
+    //[POST] /login
+    Login(req,res,next){
+        // req.headers['authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDc0NTZmNzk1NTM4ODdiOTkyYjY4YmQiLCJpYXQiOjE2ODUzNTY4NDcsImV4cCI6MTcxNjkxNDQ0N30.7hMtpzgkjWWRrrsV-jIRl6mtgbAvxLZ_UeYDa6S4E8w'
+        res.redirect('/')
+    }
     
 
 

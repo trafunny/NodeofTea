@@ -24,7 +24,7 @@ const User = new Schema({
 
 User.pre('save',async function(next){
     try {
-        console.log(`called before save :::` , this.username , this.password)
+        console.log(`called before save :::` , this.name , this.password)
         const salt = await bcrypt.genSalt(10)
         const hassPassword =  await  bcrypt.hash(this.password, salt)
         this.password = hassPassword
@@ -36,5 +36,15 @@ User.pre('save',async function(next){
         
     }
 })
+
+//CHECK PASSWORD WHEN SIGN IN
+User.methods.isCheckPassword = async function(password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+}
 
 module.exports = mongoose.model('user',User);
