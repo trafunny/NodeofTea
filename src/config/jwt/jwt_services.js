@@ -1,6 +1,9 @@
 const JWT = require('jsonwebtoken')
 require('dotenv').config()
+User = require('../../app/models/User') 
 const createErr = require('http-errors')
+const {mongooesToObject} = require('../../util/sovlehbs')
+
 const signAccessToken = async (userID) =>{
     return new Promise ((resovle, reject)=>{
          const payload = {
@@ -9,7 +12,7 @@ const signAccessToken = async (userID) =>{
          }
          const secret = 'e32fe50230ee618a2b8c4fd19d9d0093efbe69b5bf171a720836ede592690a5b' 
          const options ={
-            expiresIn : '30s'  // 10m 10s  
+            expiresIn : '30m'  // 10m 10s  
          }
          JWT.sign(payload,secret,options,(err, token)=>{
             if(err) reject(err) ;
@@ -39,6 +42,7 @@ const verifyAccessToken = (req,res, next) =>{
 
         } 
         req.payload = payload 
+        
         next()
     })
 }
@@ -59,4 +63,27 @@ const signRefreshToken = async (userID) =>{
          })
     })
 }
-module.exports =  {signAccessToken, verifyAccessToken , signRefreshToken} 
+
+const checkRole = (req,res,next)=>{
+    // console.log(req.payload)
+    userID = req.payload.userID
+    console.log(userID)
+
+    User.findOne({_id: userID})
+        .then((user)=>{
+            req.data = user
+        })
+        .then(()=>{
+            if(req.data.role === 'admin'){
+                
+            }else{
+                res.send('You do not permisson !')
+            }
+        })
+        .catch(next())
+
+    // next()
+
+    
+}
+module.exports =  {signAccessToken, verifyAccessToken , signRefreshToken,checkRole} 
