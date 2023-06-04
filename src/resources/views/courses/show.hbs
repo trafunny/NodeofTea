@@ -1,13 +1,48 @@
 <div class="course margin-top-all">
     <div class="row">
         <div class="col-lg-3">
-            <button>HOC NGAY</button>
+            <div class="list-group list-group-numbered">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                    The current button
+                </button>
+                <button type="button" class="list-group-item list-group-item-action" disabled>A second button
+                    item</button>
+                <button type="button" class="list-group-item list-group-item-action" disabled>A third button
+                    item</button>
+                <button type="button" class="list-group-item list-group-item-action" disabled>A fourth button
+                    item</button>
+                <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button
+                    item</button>
+            </div>
 
         </div>
         <div class="col-lg-9">
+
+            {{!-- <iframe width="98.5%" height="500" src="https://www.youtube.com/embed/{{course.vidID}}"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe> --}}
+            {{!-- {{a = course.vidID}} --}}
+            {{#with (index course.videos 1)}}
+            <iframe width="98.5%" height="500" src="https://www.youtube.com/embed/{{this.vidID}}"
+                title="{{this.title}}" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            {{/with}}
             <h2>{{course.name}} </h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.vidID}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <p>{{course.description}}  </p>
+            <p>{{course.description}} </p>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+
+        document.querySelector('body').classList.add('bg-color-signin--up')
+        document.querySelector('nav.navbar').classList.add('boder-navbar')
+        document.querySelector('p').classList.add('color--white')
+        document.querySelector('h2').classList.add('color--white')
+
+    });
+</script>

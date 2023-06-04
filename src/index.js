@@ -4,7 +4,7 @@ dotevn.config()
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const hanadlebars = require('express-handlebars');
+const handlebars = require('express-handlebars');
 const { url } = require('inspector');
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -15,7 +15,11 @@ const cookieParser = require('cookie-parser')
 
 app.use(cookieParser())
 
+const Handlebars = require('handlebars');
 
+Handlebars.registerHelper('index', function (array, index) {
+  return array[index];
+});
 
 
 // override with POST having ?_method=DELETE or PUT
@@ -49,7 +53,7 @@ function Guard(req,res,next){
 }
 
 // hanadlebars (template engine)
-app.engine('hbs', hanadlebars.engine({
+app.engine('hbs', handlebars.engine({
   extname: '.hbs',
   helpers: {
     sum: (a,b) => a+b ,
