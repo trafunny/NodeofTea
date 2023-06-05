@@ -36,9 +36,11 @@ const verifyAccessToken = (req,res, next) =>{
     JWT.verify(token, 'e32fe50230ee618a2b8c4fd19d9d0093efbe69b5bf171a720836ede592690a5b' , (err,payload )=>{
         if(err) {
             if(err.name === 'JsonWebTokenError'){
+                res.send('Sai Mk')
                 return next(createErr.Unauthorized())
             }
-            return next(createErr.Unauthorized(err.message))
+            // return next(createErr.Unauthorized(err.message))
+            res.send('JWT expired ! <a href = "/signin"> Login again </a> , pls !!!!')
 
         } 
         req.payload = payload 
