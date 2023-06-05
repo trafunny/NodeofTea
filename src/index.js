@@ -17,6 +17,7 @@ app.use(cookieParser())
 
 const Handlebars = require('handlebars');
 
+// To render specific data when use database that return array include objs => {{with ...}}
 Handlebars.registerHelper('index', function (array, index) {
   return array[index];
 });

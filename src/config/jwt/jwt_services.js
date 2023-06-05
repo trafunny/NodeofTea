@@ -79,7 +79,7 @@ const checkRole = (req,res,next)=>{
             if(req.data.role === 'admin'){
                 
             }else{
-                res.send('You do not permisson !')
+                res.send('You do not permisson ! Go <a href = "javascript:history.back()">back </a>')
             }
         })
         .catch(next())
