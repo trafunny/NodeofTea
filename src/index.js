@@ -1,13 +1,16 @@
-const dotevn = require('dotenv')
-dotevn.config()
+
+
 
 const path = require('path');
+
 const express = require('express');
+
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const { url } = require('inspector');
 const app = express();
-const PORT = process.env.PORT || 3000
+require('dotenv').config()
+const PORT = process.env.PORT
 const route = require('./routes')
 const db = require('./config/db')
 const methodOverride = require('method-override')
@@ -42,18 +45,18 @@ app.use(express.json())
 
 //MiddleWare
 // app.use(Guard)
-function Guard(req,res,next){
-  if(['user','admin'].includes(req.query.ve)){
-    req.face = 'Yes'
-    return next();
-  }
-  res.status(403).json({
-    message : ' Access Denied ' ,
-  })
+// function Guard(req,res,next){
+//   if(['user','admin'].includes(req.query.ve)){
+//     req.face = 'Yes'
+//     return next();
+//   }
+//   res.status(403).json({
+//     message : ' Access Denied ' ,
+//   })
 
-}
+// }
 
-// hanadlebars (template engine)
+// handlebars (template engine)
 app.engine('hbs', handlebars.engine({
   extname: '.hbs',
   helpers: {
@@ -78,5 +81,3 @@ app.listen(PORT, () => {
   console.log(` App listening on port http://localhost:${PORT}`);
 })
 
-
-// HOC PHAN AUTHOZIED
