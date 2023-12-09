@@ -18,35 +18,35 @@
     flex-direction: column;">
       <div class="mb-3">
         <label for="name" class="form-label" style="font-size: 16px;">User Name</label>
-        <input type="text" class="form-control" id="name" placeholder="VD: TraNguyen"
-          aria-describedby="emailHelp" style="font-size: 1rem;" name="name" required>
+        <input type="text" class="form-control" id="name" placeholder="VD: TraNguyen" aria-describedby="emailHelp"
+          style="font-size: 1rem;" name="name" required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label" style="font-size: 16px;">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="VD: 1234"
-          style=" font-size : 1rem;" name="password" required>
-        <div id="emailHelp" class="form-text" style="color: #bbb">We'll never share your password with anyone else.</div>
+        <input type="password" class="form-control" id="password" placeholder="VD: 1234" style=" font-size : 1rem;"
+          name="password" required>
+        <div id="emailHelp" class="form-text" style="color: #bbb">We'll never share your password with anyone else.
+        </div>
       </div>
       {{!-- <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div> --}}
-      <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Log
-        in</button>
+      <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;"
+        ">Log in</button>
+     
     </form>
   </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded',function(){
+  document.addEventListener('DOMContentLoaded', function () {
 
-      
-        document.querySelector('body').classList.add('bg-color-signin--up')
-        document.querySelector('nav.navbar').classList.add('boder-navbar')
-        document.querySelector('div.sign-in').classList.add('bg-color-signin--up','color--white')
-        document.querySelector('h1').classList.add('color--white')
 
-        
-     
-    });
-  </script>
+    document.querySelector('body').classList.add('bg-color-signin--up')
+    document.querySelector('nav.navbar').classList.add('boder-navbar')
+    document.querySelector('div.sign-in').classList.add('bg-color-signin--up', 'color--white')
+    document.querySelector('h1').classList.add('color--white')
+
+  });
+</script>

@@ -40,6 +40,7 @@ const verifyAccessToken = (req,res, next) =>{
                 return next(createErr.Unauthorized())
             }
             // return next(createErr.Unauthorized(err.message))
+            res.clearCookie('token')
             res.send('JWT expired ! <a href = "/signin"> Login again </a> , pls !!!!')
 
         } 

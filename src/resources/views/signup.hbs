@@ -15,7 +15,7 @@
 
         <form style="width: 360px;
     align-self: center; display: flex;  margin-bottom: 1rem;
-    flex-direction: column;" method="POST" action="/create-user">
+    flex-direction: column;" method="POST" action="/create-user" id="login-form">
             <div class="mb-3">
                 <label for="name" class="form-label" style="font-size: 16px;">User Name</label>
                 <input type="text" class="form-control" id="name" placeholder="VD: TraNguyen" name="name"
@@ -25,7 +25,7 @@
                 <label for="tel" class="sdt" style="font-size: 16px;">Phone Number</label>
                 <input type="tel" class="form-control" id="tel" placeholder="VD: TraNguyen" name="tel"
                     aria-describedby="emailHelp" style="font-size: 1rem;" required>
-            </div>  
+            </div>
             <div class="mb-3">
                 <label for="password" class="form-label" style="font-size: 16px;">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="VD: 1234" name="password"
@@ -37,25 +37,49 @@
                     style=" font-size : 1rem;" required>
                 <div id="emailHelp" class="form-text" style="color: #bbb;">Enter your password again !</div>
             </div>
-            {{!-- <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div> --}}
-            <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Sign Up</button>
+
+            <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Sign
+                Up</button>
         </form>
     </div>
+    
+</div>
+
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded',function(){
+    document.addEventListener('DOMContentLoaded', function () {
 
-      
+
         document.querySelector('body').classList.add('bg-color-signin--up')
         document.querySelector('nav.navbar').classList.add('boder-navbar')
-        document.querySelector('div.sign-up').classList.add('bg-color-signin--up','color--white')
-        document.querySelector('h1').classList.add('color--white')
+        document.querySelector('div.sign-up').classList.add('bg-color-signin--up', 'color--white')
+        document.querySelector('h2').classList.add('color--white')
+
+        const password = document.querySelector('#password')
+        const re_password = document.querySelector('#re-password')
+        const form_signup = document.querySelector('form')
 
 
-     
+
+        form_signup.onsubmit = function () {
+            const val1 = password.value
+            const val2 = re_password.value
+
+            if (val1 !== val2) {
+                console.log('Mk k khop ')
+                
+
+
+            }
+
+        }
+
+
+
+        
+
+
+
     });
-  </script>
+</script>

@@ -21,7 +21,7 @@ const User = new Schema({
 },{
     timestamps : true ,     
 })
-
+// Encode password before was saved 
 User.pre('save',async function(next){
     try {
         console.log(`called before save :::` , this.name , this.password)
@@ -48,3 +48,5 @@ User.methods.isCheckPassword = async function(password) {
 }
 
 module.exports = mongoose.model('user',User);
+
+

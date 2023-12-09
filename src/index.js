@@ -1,10 +1,7 @@
 
-
-
 const path = require('path');
-
 const express = require('express');
-
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const { url } = require('inspector');
@@ -25,6 +22,7 @@ Handlebars.registerHelper('index', function (array, index) {
   return array[index];
 });
 
+console.log(path.join(__dirname,'resources/views'));
 
 // override with POST having ?_method=DELETE or PUT
 app.use(methodOverride('_method'))
@@ -33,7 +31,7 @@ app.use(methodOverride('_method'))
 db.connect();
 
 
-// console.log(path.join(__dirname,'resources/views'));
+
 // logger GET
 // app.use(morgan('combined'));
 
@@ -42,6 +40,9 @@ app.use(express.urlencoded({
   extended: true
 }))
 app.use(express.json())
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //MiddleWare
 // app.use(Guard)
